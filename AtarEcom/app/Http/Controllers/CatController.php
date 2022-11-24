@@ -14,6 +14,7 @@ class CatController extends Controller
 
     function insert(Request $req){
         $cat_name = $req->cat_name;
+        $cat_price = "10";
         
         return view('admin.cat',compact('cat_name'));
     }
