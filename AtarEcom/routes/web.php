@@ -22,3 +22,5 @@ Route::get('catShow/',[CatController::class,'show'] );
 Route::post('add_cat/',[CatController::class,'insert'] );
 Route::get('/',[FrontController::class,'homepage'] );
 
+
+
