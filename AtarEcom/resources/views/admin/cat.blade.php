@@ -323,12 +323,14 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>Jacob</td>
-                            <td>53275531</td>
-                            <td>Edit Delete</td>
-                            
-                          </tr>
+                          @foreach($data as $d)
+                            <tr>
+                              <td>{{$d->id}}</td>
+                              <td>{{$d->cat_name}}</td>
+                              <td>Edit Delete</td>
+                              
+                            </tr>
+                          @endforeach
                         </tbody>
                       </table>
                     </div>
