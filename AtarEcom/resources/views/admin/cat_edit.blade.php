@@ -288,7 +288,7 @@
 
                     @endif
                     <h4 class="card-title">Main Category form</h4>
-                    <form class="forms-sample" method = "post" action="{{url('add_cat/')}}">
+                    <form class="forms-sample" method = "post" action="{{url('update/')}}">
                       @csrf
                       <div class="form-group">
                         <label for="exampleInputUsername1">Category Name</label>
@@ -297,43 +297,22 @@
                           class="form-control"
                           id="exampleInputUsername1"
                           name="cat_name"
+                          value="{{$data[0]['cat_name']}}"
+                          placeholder="Enter Product Category Name"
+                        />
+                        <input
+                          type="hidden"
+                          class="form-control"
+                          id="exampleInputUsername1"
+                          name="cat_id"
+                          value="{{$data[0]['id']}}"
                           placeholder="Enter Product Category Name"
                         />
                       </div>
                       <button type="submit" class="btn btn-primary me-2">
-                        Submit
+                        Update
                       </button>
                     </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-6 mx-auto grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Show Category</h4>
-                    <div class="table-responsive">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th>SL</th>
-                            <th>Category Name</th>
-                            <th>Action </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          @foreach($data as $d)
-                            <tr>
-                              <td>{{$loop->iteration}}</td>
-                              <td>{{$d->cat_name}}</td>
-                              <td><a href='{{url("show_edit/".$d->id)}}'>Edit</a> <a href='{{url("delete/".$d->id)}}'>Delete</a></td>
-                              
-                            </tr>
-                          @endforeach
-                        </tbody>
-                      </table>
-                    </div>
                   </div>
                 </div>
               </div>

@@ -20,6 +20,9 @@ use App\Http\Controllers\FrontController;
 // });
 Route::get('catShow/',[CatController::class,'show'] );
 Route::post('add_cat/',[CatController::class,'insert'] );
+Route::get('show_edit/{cat_id}',[CatController::class,'showEdit'] );
+Route::post('update/',[CatController::class,'update'] );
+Route::get('delete/{cat_id}',[CatController::class,'delete'] );
 Route::get('/',[FrontController::class,'homepage'] );
 
 
