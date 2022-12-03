@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CatController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\TestCatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,8 @@ Route::get('show_edit/{cat_id}',[CatController::class,'showEdit'] );
 Route::post('update/',[CatController::class,'update'] );
 Route::get('delete/{cat_id}',[CatController::class,'delete'] );
 Route::get('/',[FrontController::class,'homepage'] );
+
+Route::resource('testCat', TestCatController::class);
 
 
 
