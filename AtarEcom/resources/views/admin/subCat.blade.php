@@ -288,32 +288,67 @@
 
                     @endif
                     <h4 class="card-title">Main Category form</h4>
-                    <form class="forms-sample" method = "post" action="{{url('testCat/'.$data[0]['id'])}}">
-                      
+                    <form class="forms-sample" method = "post" action="{{url('subcat/')}}">
                       @csrf
                       <div class="form-group">
                         <label for="exampleInputUsername1">Category Name</label>
+                        <select
+                          class="form-control"
+                          id="exampleInputUsername1"
+                          name="cat_id"
+                          placeholder="Enter Product Category Name"
+                        ><option>Select Category</option>
+                        @foreach($data as $d)
+                        <option value="{{$d->cat_id}}">{{$d->cat_name}}</option>
+                        @endforeach
+                    </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputUsername1">Sub Category Name</label>
                         <input
                           type="text"
                           class="form-control"
                           id="exampleInputUsername1"
-                          name="cat_name"
-                          value="{{$data[0]['cat_name']}}"
-                          placeholder="Enter Product Category Name"
-                        />
-                        <input
-                          type="hidden"
-                          class="form-control"
-                          id="exampleInputUsername1"
-                          name="cat_id"
-                          value="{{$data[0]['id']}}"
+                          name="sub_cat_name"
                           placeholder="Enter Product Category Name"
                         />
                       </div>
                       <button type="submit" class="btn btn-primary me-2">
-                        Update
+                        Submit
                       </button>
                     </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 mx-auto grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Show Category</h4>
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>SL</th>
+                            <th>Category Name</th>
+                            <th>Sub Category Name</th>
+                            <th>Action </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          @foreach($data as $d)
+                            <tr>
+                              <td>{{$loop->iteration}}</td>
+                              <td>{{$d->cat_name}}</td>
+                              <td>{{$d->sub_cat_name}}</td>
+                              <td><a href='{{url("show_edit/".$d->id)}}'>Edit</a> <a href='{{url("delete/".$d->id)}}'>Delete</a></td>
+                              
+                            </tr>
+                          @endforeach
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -329,7 +364,7 @@
                 class="text-muted text-center text-sm-left d-block d-sm-inline-block"
                 >Copyright ©
                 <a href="https://www.bootstrapdash.com/" target="_blank"
-                >bootstrapdash.com </a
+                  >bootstrapdash.com </a
                 >2021</span
               >
               <span

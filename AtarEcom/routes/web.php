@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CatController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\TestCatController;
+use App\Http\Controllers\subCatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,8 @@ Route::get('delete/{cat_id}',[CatController::class,'delete'] );
 Route::get('/',[FrontController::class,'homepage'] );
 
 Route::resource('testCat', TestCatController::class);
+
+Route::resource('subcat', subCatController::class);
 
 
 
