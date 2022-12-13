@@ -1,10 +1,13 @@
 <?php
 
+
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CatController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\TestCatController;
 use App\Http\Controllers\subCatController;
+use App\Http\Controllers\productController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +33,9 @@ Route::get('/',[FrontController::class,'homepage'] );
 Route::resource('testCat', TestCatController::class);
 
 Route::resource('subcat', subCatController::class);
+
+Route::get('product/sel_sub_ajax/{id}',[productController::class,'subCatAjax']);
+Route::resource('product', productController::class);
 
 
 
