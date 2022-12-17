@@ -313,6 +313,68 @@
                         ><option>Select Sub Category</option>
                         </select >
                       </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputUsername1">Product Title</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="prod_title"
+                          name="prod_title"
+                          placeholder="Enter Product Title"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputUsername1">Product Description</label>
+                        
+                        <textarea id="prod_desc" name="prod_desc" rows="4" cols="50" class="form-control">
+                        </textarea>
+        
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputUsername1">Product Image</label>
+                        <input
+                          type="file"
+                          class="form-control"
+                          id="prod_img"
+                          name="prod_img"
+                        />
+                      </div>
+
+                      <div class="form-group">
+                            <label for="exampleInputUsername1">Add Weight 1</label>
+                        <div class="d-flex">
+                        <input
+                          type="text"
+                          class="form-control enable_tag"
+                          id="exampleInputUsername1"
+                          name ="weight[]"
+                          placeholder="Enter Product Weight (E.g, 3ML, 6ML)"
+                          disabled
+                        />
+                        <a href="#" id ="add_more_weight" class="enable_tag btn btn-primary me-2" >
+                        <buttton disabled>Add More</button>
+                        </a>
+                        </div>
+                        <div class="form-group weight_div">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputUsername1">Add Price for Weight 1</label>
+                            <div class="d-flex">
+                        <input
+                          type="text"
+                          class="form-control enable_tag"
+                          id="exampleInputUsername1"
+                          name ="prod_price[]"
+                          placeholder="Enter Product Price (E.g, 3ML, 6ML)"
+                          disabled
+                        />
+                        </div>
+                        <div class="form-group weight_price_div ">
+                        </div>
+</div>
+                      
                       <button type="submit" class="btn btn-primary me-2">
                         Submit
                       </button>

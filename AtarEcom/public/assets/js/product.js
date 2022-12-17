@@ -20,4 +20,14 @@ $(document).ready(function(){
             },
         });
     });
+    var count = 1
+    $("#add_more_weight").click(function(){
+        count = count+1
+        var weight_div = '<label for="exampleInputUsername1">Add Weight '+count+'</label><input type="text" class="form-control enable_tag" id="exampleInputUsername1" name ="weight[]" placeholder="Enter Product Weight (E.g, 3ML, 6ML)" disabled/>'
+
+        $(".weight_div").append(weight_div);
+
+        var price_div = '<label for="exampleInputUsername1">Add Price For Weight '+count+'</label><input type="text" class="form-control enable_tag" id="exampleInputUsername1" name ="price[]" placeholder="Enter Product Price (E.g, 3ML, 6ML)" disabled/>'
+        $(".weight_price_div").append(price_div);
+    });
 });
