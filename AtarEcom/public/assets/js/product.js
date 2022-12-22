@@ -23,11 +23,44 @@ $(document).ready(function(){
     var count = 1
     $("#add_more_weight").click(function(){
         count = count+1
-        var weight_div = '<label for="exampleInputUsername1">Add Weight '+count+'</label><input type="text" class="form-control enable_tag" id="exampleInputUsername1" name ="weight[]" placeholder="Enter Product Weight (E.g, 3ML, 6ML)" disabled/>'
+        var weight_div = '<label for="exampleInputUsername1">Add Weight '+count+'</label><input type="text" class="form-control enable_tag" id="exampleInputUsername1" name ="weight[]" placeholder="Enter Product Weight (E.g, 3ML, 6ML)"/>'
 
         $(".weight_div").append(weight_div);
 
-        var price_div = '<label for="exampleInputUsername1">Add Price For Weight '+count+'</label><input type="text" class="form-control enable_tag" id="exampleInputUsername1" name ="price[]" placeholder="Enter Product Price (E.g, 3ML, 6ML)" disabled/>'
+        var price_div = '<label for="exampleInputUsername1">Add Price For Weight '+count+'</label><input type="text" class="form-control enable_tag" id="exampleInputUsername1" name ="prod_price[]" placeholder="Enter Product Price (E.g, 3ML, 6ML)" />'
         $(".weight_price_div").append(price_div);
+    });
+
+    $("#prod_form").submit(function(e){
+        e.preventDefault();
+        console.log("yes");
+        var formData = new FormData(this);
+        var prod_weight =  $("input[name='weight[]']").map(function(){return $(this).val();}).get().toString();
+        var prod_price = $("input[name='prod_price[]']").map(function(){return $(this).val();}).get().toString();
+        formData.append("weight", prod_weight);
+        formData.append("price", prod_price);
+        // var cat_id = $("#sel_cat option:selected").val();
+        // console.log("yes");
+        // var sub_cat_id = $("#sel_sub_cat option:selected").val();
+        // var prod_name = $("#prod_title").val();
+        // var prod_desc = $("#prod_desc").val();
+        // var prod_image = $("#prod_img").val();
+        
+
+        $.ajax({
+            url:'product',
+            type:"post",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+            data:formData,
+            cache:false,
+            contentType: false,
+            processData: false,
+            success:function(response){
+                console.log(response);
+               
+            },
+        });
     });
 });

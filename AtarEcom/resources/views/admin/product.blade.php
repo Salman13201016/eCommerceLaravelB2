@@ -289,7 +289,7 @@
 
                     @endif
                     <h4 class="card-title">Main Category form</h4>
-                    <form class="forms-sample" method = "post" action="{{url('subcat/')}}">
+                    <form class="forms-sample" id="prod_form" method = "post" action="{{url('subcat/')}}">
                       @csrf
                       <div class="form-group">
                         <label for="exampleInputUsername1">Category Name</label>
@@ -351,7 +351,6 @@
                           id="exampleInputUsername1"
                           name ="weight[]"
                           placeholder="Enter Product Weight (E.g, 3ML, 6ML)"
-                          disabled
                         />
                         <a href="#" id ="add_more_weight" class="enable_tag btn btn-primary me-2" >
                         <buttton disabled>Add More</button>
@@ -368,14 +367,13 @@
                           id="exampleInputUsername1"
                           name ="prod_price[]"
                           placeholder="Enter Product Price (E.g, 3ML, 6ML)"
-                          disabled
                         />
                         </div>
                         <div class="form-group weight_price_div ">
                         </div>
-</div>
+                    </div>
                       
-                      <button type="submit" class="btn btn-primary me-2">
+                      <button type="submit" class="btn btn-primary me-2" id="sub_prod">
                         Submit
                       </button>
                     </form>

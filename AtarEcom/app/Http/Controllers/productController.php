@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\CatModel;
 use App\Models\SubCatModel;
+use App\Models\ProductModel;
 
 class productController extends Controller
 {
@@ -52,6 +53,25 @@ class productController extends Controller
     public function store(Request $request)
     {
         //
+        $cat_id  = $request->input('cat_id');
+        $sub_cat_id  = $request->input('sub_cat_id');
+        $prod_name  = $request->input('prod_title');
+        $prod_desc  = $request->input('prod_desc');
+        $image_path = $request->file('prod_img')->store('public/images');
+        $prod_weight  = $request->input('weight');
+        $prod_price  = $request->input('price');
+        var_dump($prod_weight);
+
+        $product = new ProductModel();
+
+        $product->cat_id = $cat_id;
+        $product->sub_cat_id = $sub_cat_id;
+        $product->prod_name = $prod_name;
+        $product->prod_desc = $prod_desc;
+        $product->prod_image = $image_path;
+        $product->prod_weight = $prod_weight;
+        $product->prod_price = $prod_price;
+        $product->save();
     }
 
     /**
